@@ -44,8 +44,12 @@ pip install requests
 ## Badge
 
 ## MainTainer
+@ChiuAlfredo
+
+and thanks @musikalkemist ,my basic idea is from him
 
 ## License
+#MIT License
 
 
 
