@@ -1,3 +1,3 @@
-client_id :0d036a7dd0d24a80a1bc4c8ee139ca23
-client_secret :6cfb51ace45145f1b371867ec24ff70e
-user_name :wlt7v9vl994rlcgeoqid314ky
+client_id :
+client_secret :
+user_name :
