@@ -40,7 +40,7 @@ class mode:
               
               
               """)
-        while 1:
+        while True:
             seed_artist = str(input("which artist you want to listen(enter id): "))
             print("\'"+spotify_client.show_artist_name(seed_artist)+"\'"+" is the artist which you want to be seed")
             choose = str(input("y/n:"))
@@ -89,3 +89,26 @@ class mode:
         # populate playlist with recommended tracks
         spotify_client.populate_playlist(playlist,tracks)
         print(f"\nRecommended tracks successfully uploaded to playlist '{playlist.name}'.")
+        
+    def from_chatgpt_create_playlist(self,spotify_client):
+        # input chatgpt list
+        print("""
+              *******************************************
+              you can paste the complete chatgpt playlist here
+              """)
+        chatgpt_playlist_str = str(input("Please paste your playlist:  "))
+        playlist = spotify_client.parse_playlist(chatgpt_playlist_str)
+        
+        for index, track in enumerate(playlist):
+            print(f"{index+1}- {track}")
+    
+        # get playlist name from user and create playlist
+        playlist_name = input("\nWhat's the playlist name? ")
+        playlist = spotify_client.create_playlist(playlist_name)
+        print(f"\nPlaylist '{playlist.name}' was created successfully.")
+    
+        # populate playlist with recommended tracks
+        spotify_client.populate_playlist(playlist, playlist)
+        print(f"\nRecommended tracks successfully uploaded to playlist '{playlist.name}'.")
+
+        #get response

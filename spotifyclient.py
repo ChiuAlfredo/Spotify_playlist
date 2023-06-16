@@ -1,11 +1,10 @@
 import json
-
+import re
 import requests
 
-from track import Track
-from playlist import Playlist
-from album import Album
-
+from model.track import Track
+from model.playlist import Playlist
+from model.album import Album
 
 class SpotifyClient:
     """SpotifyClient performs operations using the Spotify API."""
@@ -221,3 +220,46 @@ class SpotifyClient:
                 print(f'{i}:wrong')
             print(i) 
         return tracks
+    
+    def search_track_id(self,item):
+        
+        url = f"https://api.spotify.com/v1/search?q={item}&type=track&market=US&limit=1&offset=0"
+        response = self._place_get_api_request(url)
+        response_json = response.json()
+        track = self.process_tracks_list(response_json)
+        return track
+    
+    def search_tracks_ids(self,playlist):
+        playlist_id = []
+        for track_item in playlist:
+            id = self.search_track_id(track_item)
+    def parse_playlist(self,chatgpt_playlist_str):
+#         chatgpt_playlist_str = '''當然！以下是10首結合了鄉村和電音元素的歌曲，帶有獨特的鄉村電音風格：
+
+# 1. Avicii ft. Dan Tyminski - "Hey Brother"
+# 2. The Chainsmokers & Kelsea Ballerini - "This Feeling"
+# 3. Sam Hunt - "Body Like a Back Road" (Cedric Gervais Remix)
+# 4. Morgan Wallen - "Up Down" (ft. Florida Georgia Line) (Morgan Wallen Remix)
+# 5. Bebe Rexha & Florida Georgia Line - "Meant to Be" (Play-N-Skillz Remix)
+# 6. Diplo ft. Morgan Wallen - "Heartless" (Country EDM Remix)
+# 7. Maren Morris - "The Middle" (Grey Remix)
+# 8. Marshmello & Kane Brown - "One Thing Right"
+# 9. Zedd, Maren Morris & Grey - "The Middle" (DJ Dark & MD DJ Remix)
+# 10. Justin Timberlake ft. Chris Stapleton - "Say Something" (Afrojack & Chasner Remix)
+
+# 這些歌曲將鄉村和電音元素相結合，創造出融合了兩種風格的獨特音樂體驗。希望你會喜歡這些鄉村電音的推薦！'''
+        '''
+        Parameters
+        ----------
+        chatgpt_playlist_str : TYPE
+            DESCRIPTION.
+
+        Returns
+        -------
+        playlist : TYPE
+            DESCRIPTION.
+
+        '''
+        playlist = re.findall(r'\d+\.\s(.+)', chatgpt_playlist_str)
+
+        return playlist
