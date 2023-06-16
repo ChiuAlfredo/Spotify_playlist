@@ -51,6 +51,7 @@ import datetime
 from urllib.parse import urlencode
 import base64
 import json
+import os 
 
 class Auth():
     client_id = None
@@ -65,10 +66,14 @@ class Auth():
     access_token = None
     refresh_token = None
     choice = 0
+    auth_path = os.path.join('.', 'data', 'auth_token.json')
     def __init__(self,client_id,client_secret):
         self.client_id = client_id
         self.client_secret = client_secret
-        with open('/data/auth_token.json') as f:
+        
+        current_dir = os.getcwd()
+        print(current_dir)
+        with open(self.auth_path) as f:
             data = json.load(f)
             try:
                 refresh_token = data['refresh_token']
@@ -198,7 +203,7 @@ class Auth():
 
         '''
         #read datat
-        with open('/data/auth_token.json') as f:
+        with open(self.auth_path) as f:
             data = json.load(f)
             try:
                 refresh_token = data['refresh_token']
@@ -264,7 +269,7 @@ class Auth():
         self.print_out('expires :  ',str(expires))
         
         #write data
-        with open('/data/auth_token.json','w')as f:
+        with open(self.auth_path,'w')as f:
             json.dump(data,f,ensure_ascii=False,indent=2)
             
         self.access_token = access_token

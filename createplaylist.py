@@ -1,7 +1,7 @@
 
 from spotifyclient import SpotifyClient
 from mode import mode
-from autho_all import Auth
+from model.autho_all import Auth
 def main():
     '''
     use 
@@ -21,7 +21,8 @@ def main():
     print('                        Choose                                     ')
     print_out(          '1)Use recent play songs as seeds to create a recommand playlist',
           '2)Use a artist as a seed to craete a recommand playlist',
-          '3)Use a spotify href to create a playlist')  
+          '3)Use a spotify href to create a playlist',
+          '4)Use a chatgpt to create a playlist')
 
     
     choose_mode = int(input("which mode you want to choose: "))
@@ -38,6 +39,8 @@ def main():
         mode_choose.from_artist_create_playlist(spotify_client)
     if choose_mode ==3:
         mode_choose.from_url_create_playlist(spotify_client)
+    if choose_mode ==4:
+        mode_choose.from_chatgpt_create_playlist(spotify_client)
         
     
 def print_out(*args):

@@ -1,7 +1,6 @@
 {
-  "access_token": "BQAi6zcWgOl_3Up4wUG4PMcd_Yl-trG_wKYfGDPITTgGHePiPgNQBzyRBHTGWYhaDWKaTm2MPngier0aamCXGDkf_C7sxvaaHxEcp5SFexREObms3ljPNGRpyKsbR-EVCCr5I69BECe01c8TopHMTNuP0rAOI7EDa3KisBJbbNOhoUoJOxLQ40ukpB_A-P0YZyoLQdKUNhkZOB4zt6ujcxr3yMvBC0D24Q",
+  "access_token": "BQCUSH3gdy23KoDRSDGifSyyyf2yarCwIIwoQ9fnNRdh06H-HetcOXZk78WYoT63e02URY9wqX-Nq-H8Vx11WcPujxXVa-7hf7bCuGua-nYX0nhJA1VBO9dnUzfU2rzHT7BIipYcT4zbOuMEHCCqf85eQpUIEQQpS-GVTqEI_-HiioH8xSEhIRVBoGT7snMi9ARWWWahWJQtD1m7FQfd4bOtEJreApzvluZwGGTM8QcUMGKv1kVN36HxVA5oPli_mqIRYv-yCg",
   "token_type": "Bearer",
   "expires_in": 3600,
-  "refresh_token": "AQD1YEy0xQaHpMH8LrS616gkH0DpPYukGxX3kolbe7KzHMus2MoV8u3UZXAy5xRlbDvN0OpICMXeRwX3VEQJrLQR1rChLmQ2YbRiOUfJsnbHWt1i-lqqG4-YQTF-331iBvU",
   "scope": "playlist-modify-private playlist-modify-public user-read-recently-played"
 }
